@@ -107,7 +107,7 @@ public class Player : AnimationSprite
             {
                 Collectables collectables = other as Collectables;
                 collectables.destroyTheCollectable();
-                ScorePlayer = ScorePlayer + 500;
+                ScorePlayer = ScorePlayer + 600;
             }
 
         }
