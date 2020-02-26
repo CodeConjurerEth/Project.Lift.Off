@@ -6,11 +6,14 @@ public class ClownBalance : Game
 {
     public ClownBalance() : base(1920, 1080, false)      // Create a window that's 800x600 and NOT fullscreen
     {
-      
+
         StartUpScreen startUpScreen = new StartUpScreen();
         AddChild(startUpScreen);
 
-        
+        //SceneManager scenemanager = new SceneManager();
+        //AddChild(scenemanager);
+
+
     }
 
     static void Main()                          // Main() is the first method that's called when the program is run

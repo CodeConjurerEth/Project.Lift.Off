@@ -37,10 +37,13 @@ public class Level : GameObject
         isTheGameOver = false;
         _collectableCounter = 0;
 
+<<<<<<< HEAD
         //Timer timer = new Timer(3000, LateDestroy);
         //AddChild(timer);
         random = new Random();
 
+=======
+>>>>>>> cc323bdb0b0a4be9778422b3f0d73cdc983e91d2
         HUD hud = new HUD(_player);
         AddChild(hud);
 
