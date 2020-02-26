@@ -37,8 +37,8 @@ public class Level : GameObject
         AddChild(_player);
         isTheGameOver = false;
 
-        //Timer timer = new Timer(3000, LateDestroy);
-        //AddChild(timer);
+        Arc arc = new Arc();
+        AddChild(arc);
 
         HUD hud = new HUD(_player);
         AddChild(hud);
