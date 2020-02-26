@@ -38,6 +38,7 @@
   <ItemGroup>
     <Compile Include="Background.cs" />
     <Compile Include="Button.cs" />
+    <Compile Include="Collectables.cs" />
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="Flowers.cs" />
     <Compile Include="GameOverScreen.cs" />

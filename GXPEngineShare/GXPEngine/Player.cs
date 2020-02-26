@@ -103,6 +103,12 @@ public class Player : AnimationSprite
                 flowers.Catched();
                 ScorePlayer = ScorePlayer + 200;
             }
+            if (other is Collectables)
+            {
+                Collectables collectables = other as Collectables;
+                collectables.destroyTheCollectable();
+                ScorePlayer = ScorePlayer + 500;
+            }
 
         }
     }
