@@ -37,9 +37,6 @@ public class Level : GameObject
         AddChild(_player);
         isTheGameOver = false;
 
-        Arc arc = new Arc();
-        AddChild(arc);
-
         HUD hud = new HUD(_player);
         AddChild(hud);
     }
