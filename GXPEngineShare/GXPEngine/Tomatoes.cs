@@ -36,17 +36,17 @@ public class Tomatoes : AnimationSprite
             y = y - _speedY;
         }
 
-        flyingTomato();
+        //animationTomato();
     }
 
     private void stoppingTomato()
     {
-        if (this.y <= 150)
+        if (this.y < -100)
         {
             LateDestroy();
         }
     }
-    protected void flyingTomato()
+    protected void animationTomato()
     {
         int frame = (int)(this.x / 30) % numberOffFrames;
         SetFrame(frame);

@@ -37,19 +37,19 @@ public class Flowers : AnimationSprite
             y = y - _speedY;
         }
 
-        flyingFlowers();
+        //animationFlowers();
 
     }
 
     private void stoppingFlower()
     {
-        if (this.y <= 150)
+        if (this.y < -100)
         {
             LateDestroy();
         }
     }
 
-    protected void flyingFlowers()
+    protected void animationFlowers()
     {
         int frame = (int)(this.x / 30) % numberOffFrames;
         SetFrame(frame);

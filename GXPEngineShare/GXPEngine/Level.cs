@@ -11,14 +11,20 @@ public class Level : GameObject
     Tomatoes tomatoes;
     Flowers flowers;
 
+    Collectables collectablesLeft, collectablesRight;
+
     private int _nextSpawnTimeLeft;
     private int _nextSpawnTimeRight;
+    private int _nextSpawnTimeCollectables;
+
+    public int _collectableCounter = 0;
 
     Random random = new Random();
 
     private int width = 1920, height = 1080;
 
     public bool isTheGameOver;
+
    
     public Level()
 	{
@@ -30,10 +36,35 @@ public class Level : GameObject
         AddChild(_player);
         isTheGameOver = false;
 
+        //Timer timer = new Timer(3000, LateDestroy);
+        //AddChild(timer);
 
         HUD hud = new HUD(_player);
         AddChild(hud);
+    }
 
+    private void CollectableAppear()
+    {
+        if (_player.ScorePlayer == 400 && _collectableCounter ==0)
+        {
+            Console.WriteLine(_collectableCounter);
+            _collectableCounter++;
+
+            collectablesLeft = new Collectables(105, 330);
+            AddChild(collectablesLeft);
+
+            collectablesRight = new Collectables(1715, 330);
+            AddChild(collectablesRight);
+        }
+        if (_player.ScorePlayer == 2000 && _collectableCounter == 1)
+        {
+            _collectableCounter++;
+            collectablesLeft = new Collectables(105, 330);
+            AddChild(collectablesLeft);
+
+            collectablesRight = new Collectables(1715, 330);
+            AddChild(collectablesRight);
+        }
     }
 
     public void CheckGameOver()
@@ -71,6 +102,10 @@ public class Level : GameObject
 
             _nextSpawnTimeRight = Time.time + random.Next(1000, 2000);
         }
+
+        Console.WriteLine(_collectableCounter);
+
+        CollectableAppear();
 
         CheckGameOver();
     }
