@@ -1,0 +1,25 @@
+﻿<Properties StartupItem="GXPEngine\GXPEngine.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="GXPEngine\GXPEngine\Sound.cs">
+    <Files>
+      <File FileName="GXPEngine\GXPEngine\AddOns\TiledMapParser.cs" Line="1" Column="1" />
+      <File FileName="GXPEngine\MyGame.cs" Line="1" Column="1" />
+      <File FileName="GXPEngine\GXPEngine\AddOns\Settings.cs" Line="1" Column="1" />
+      <File FileName="GXPEngine\GXPEngine\Core\GLContext.cs" Line="1" Column="1" />
+      <File FileName="GXPEngine\GXPEngine\AddOns\EasyDraw.cs" Line="1" Column="1" />
+      <File FileName="GXPEngine\GXPEngine\AddOns\Window.cs" Line="1" Column="1" />
+      <File FileName="GXPEngine\GXPEngine\GameObject.cs" Line="1" Column="1" />
+      <File FileName="GXPEngine\GXPEngine\Managers\CollisionManager.cs" Line="1" Column="1" />
+      <File FileName="GXPEngine\GXPEngine\Core\Collider.cs" Line="1" Column="1" />
+      <File FileName="GXPEngine\GXPEngine\Canvas.cs" Line="1" Column="1" />
+      <File FileName="GXPEngine\GXPEngine\Utils\Utils.cs" Line="1" Column="1" />
+      <File FileName="GXPEngine\GXPEngine\Game.cs" Line="1" Column="1" />
+      <File FileName="c:\Users\Saxion\Documents\CsharpPrograms\GXPEngineDevelopment\GXPEngine\GXPEngine\SoLoud\SoloudSoundSystem.cs" Line="1" Column="1" />
+      <File FileName="GXPEngine\GXPEngine\Sound.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
