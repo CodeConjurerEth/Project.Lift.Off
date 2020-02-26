@@ -99,7 +99,6 @@ public class Player : AnimationSprite
             }
             if (other is Flowers)
             {
-                Console.WriteLine("hitie2work");
                 Flowers flowers = other as Flowers;
                 flowers.Catched();
                 ScorePlayer = ScorePlayer + 200;
