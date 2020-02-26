@@ -41,3 +41,8 @@ C:\Users\miuvl\Desktop\Git\ClowningV2.0\GXPEngineShare\GXPEngine\obj\x86\Debug\G
 C:\Users\miuvl\Desktop\Git\ClowningV2.0\GXPEngineShare\GXPEngine\obj\x86\Debug\GXPEngine.csproj.CoreCompileInputs.cache
 C:\Users\miuvl\Desktop\Git\ClowningV2.0\GXPEngineShare\GXPEngine\obj\x86\Debug\GXPEngine.exe
 C:\Users\miuvl\Desktop\Git\ClowningV2.0\GXPEngineShare\GXPEngine\obj\x86\Debug\GXPEngine.pdb
+C:\Users\lynnm\OneDrive\Bureaublad\Project 3 CLOWNING 3.0\GXPEngineShare\GXPEngine\bin\Debug\GXPEngine.exe
+C:\Users\lynnm\OneDrive\Bureaublad\Project 3 CLOWNING 3.0\GXPEngineShare\GXPEngine\bin\Debug\GXPEngine.pdb
+C:\Users\lynnm\OneDrive\Bureaublad\Project 3 CLOWNING 3.0\GXPEngineShare\GXPEngine\obj\x86\Debug\GXPEngine.csprojAssemblyReference.cache
+C:\Users\lynnm\OneDrive\Bureaublad\Project 3 CLOWNING 3.0\GXPEngineShare\GXPEngine\obj\x86\Debug\GXPEngine.exe
+C:\Users\lynnm\OneDrive\Bureaublad\Project 3 CLOWNING 3.0\GXPEngineShare\GXPEngine\obj\x86\Debug\GXPEngine.pdb

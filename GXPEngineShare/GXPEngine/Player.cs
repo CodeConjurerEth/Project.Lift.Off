@@ -27,6 +27,9 @@ public class Player : AnimationSprite
     public int LivesPlayer;
 
     private int _numbOffFrames = 20;
+
+    private Sprite _hitBox;
+
     public Player() : base("ForwardAnimation20FPS.png", 8, 3) // monocycle
     {
 
@@ -53,6 +56,8 @@ public class Player : AnimationSprite
 
         
         AddChild(_mouseHandler);
+
+        hitBox();
     }
 
     public int GetScore()
@@ -69,6 +74,38 @@ public class Player : AnimationSprite
 
         int frame = (int)(this.x / 5) % _numbOffFrames;
         SetFrame(frame);
+    }
+
+
+  
+    private void hitBox()
+    {
+        _hitBox = new Sprite("hitboxplayer.png");
+        AddChild(_hitBox);
+        _hitBox.alpha = 0.5f;
+        _hitBox.SetXY(-180, -180);
+    }
+
+    private void handleHitBoxCollisions()
+    {
+        foreach (GameObject other in _hitBox.GetCollisions())
+        {
+
+            if (other is Tomatoes)
+            {
+                Tomatoes tomato = other as Tomatoes;
+                tomato.Splash();
+                LivesPlayer--;
+            }
+            if (other is Flowers)
+            {
+                Console.WriteLine("hitie2work");
+                Flowers flowers = other as Flowers;
+                flowers.Catched();
+                ScorePlayer = ScorePlayer + 200;
+            }
+
+        }
     }
 
     private void handleInput()
@@ -193,25 +230,7 @@ public class Player : AnimationSprite
         movement();
         wind();
         balanceClown();
-
-    }
-
-    void OnCollision(GameObject other)
-    {
-        if (other is Tomatoes)
-        {
-            Tomatoes tomato = other as Tomatoes;
-            tomato.Splash();
-            LivesPlayer--;
-        }
-        if (other is Flowers)
-        {
-            Console.WriteLine(ScorePlayer);
-            Flowers flowers = other as Flowers;
-            flowers.Catched();
-
-            ScorePlayer = ScorePlayer + 200;
-        }
+        handleHitBoxCollisions();
     }
 
 }
