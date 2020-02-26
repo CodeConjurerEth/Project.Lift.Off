@@ -102,7 +102,7 @@ public class Player : AnimationSprite
             {
                 Tomatoes tomato = other as Tomatoes;
                 tomato.Splash();
-                if (random.Next(2) == 0)
+                if (_currentBalance <= 0f)
                     _currentBalance -= _tomatoPush;
                 else
                     _currentBalance += _tomatoPush;
