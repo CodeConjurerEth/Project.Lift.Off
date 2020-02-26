@@ -32,6 +32,7 @@ public class Player : AnimationSprite
     private Sprite _hitBox;
     Random random;
 
+
     public Player() : base("ForwardAnimation20FPS.png", 8, 3) // monocycle
     {
 

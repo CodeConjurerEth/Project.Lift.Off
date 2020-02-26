@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Collections.Generic;
 
 namespace GXPEngine
 {
@@ -20,7 +21,7 @@ namespace GXPEngine
 
             AddChild(_arc);
             AddChild(_lives);
-        }
+        } 
 
         void Update()
         {
