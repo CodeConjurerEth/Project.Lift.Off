@@ -15,7 +15,8 @@ public class Level : GameObject
 
     private int _nextSpawnTimeLeft;
     private int _nextSpawnTimeRight;
-    private int _nextSpawnTimeCollectables;
+    private int _nextSpawnTimeMiddle;
+    private int _nextSpawnTimeWholeScreen;
 
     public int _collectableCounter = 0;
 
@@ -47,7 +48,6 @@ public class Level : GameObject
     {
         if (_player.ScorePlayer == 400 && _collectableCounter ==0)
         {
-            Console.WriteLine(_collectableCounter);
             _collectableCounter++;
 
             collectablesLeft = new Collectables(105, 330);
@@ -67,8 +67,122 @@ public class Level : GameObject
         }
     }
 
+    private void levelEasy()
+    {
+        if (Time.time > _nextSpawnTimeLeft)
+        {
+            flowers = new Flowers(random.Next(0, 1920), random.Next(900, 1080));
+            AddChild(flowers);
+
+            tomatoes = new Tomatoes(random.Next(0, 860), random.Next(900, 1080));
+            AddChild(tomatoes);
+
+            _nextSpawnTimeLeft = Time.time + random.Next(1000, 3000);
+        }
+    }
+
+    private void levelMedium()
+    {
+        if (Time.time > _nextSpawnTimeLeft)
+        {
+            flowers = new Flowers(random.Next(0, 860), random.Next(900, 1080));
+            AddChild(flowers);
+
+            tomatoes = new Tomatoes(random.Next(0, 860), random.Next(900, 1080));
+            AddChild(tomatoes);
+
+            _nextSpawnTimeLeft = Time.time + random.Next(1000, 3000);
+        }
+        if (Time.time > _nextSpawnTimeRight)
+        {
+            flowers = new Flowers(random.Next(860, 1920), random.Next(900, 1080));
+            AddChild(flowers);
+
+            tomatoes = new Tomatoes(random.Next(860, 1920), random.Next(900, 1080));
+            AddChild(tomatoes);
+
+            _nextSpawnTimeRight = Time.time + random.Next(1000, 3000);
+        }
+    }
+
+    private void levelHard()
+    {
+        if (Time.time > _nextSpawnTimeLeft)
+        {
+            
+            flowers = new Flowers(random.Next(0, 860), random.Next(900, 1080));
+            AddChild(flowers);
+
+            tomatoes = new Tomatoes(random.Next(0, 640), random.Next(900, 1080));
+            AddChild(tomatoes);
+
+            _nextSpawnTimeLeft = Time.time + random.Next(1000, 3000);
+        }
+        if (Time.time > _nextSpawnTimeRight)
+        {
+            flowers = new Flowers(random.Next(860, 1920), random.Next(900, 1080));
+            AddChild(flowers);
+
+            tomatoes = new Tomatoes(random.Next(640, 1280), random.Next(900, 1080));
+            AddChild(tomatoes);
+
+            _nextSpawnTimeRight = Time.time + random.Next(1000, 2000);
+        }
+        if (Time.time > _nextSpawnTimeMiddle)
+        {
+
+            tomatoes = new Tomatoes(random.Next(1280, 1920), random.Next(900, 1080));
+            AddChild(tomatoes);
+
+            _nextSpawnTimeMiddle = Time.time + random.Next(1000, 2000);
+        }
+    }
+
+    private void levelExtreme()
+    {
+        if (Time.time > _nextSpawnTimeLeft)
+        {
+
+            flowers = new Flowers(random.Next(0, 860), random.Next(900, 1080));
+            AddChild(flowers);
+
+            tomatoes = new Tomatoes(random.Next(0, 640), random.Next(900, 1080));
+            AddChild(tomatoes);
+
+            _nextSpawnTimeLeft = Time.time + random.Next(1000, 2000);
+        }
+        if (Time.time > _nextSpawnTimeRight)
+        {
+            flowers = new Flowers(random.Next(860, 1920), random.Next(900, 1080));
+            AddChild(flowers);
+
+            tomatoes = new Tomatoes(random.Next(640, 1280), random.Next(900, 1080));
+            AddChild(tomatoes);
+
+            _nextSpawnTimeRight = Time.time + random.Next(1000, 2000);
+        }
+        if (Time.time > _nextSpawnTimeMiddle)
+        {
+
+            tomatoes = new Tomatoes(random.Next(1280, 1920), random.Next(900, 1080));
+            AddChild(tomatoes);
+
+            _nextSpawnTimeMiddle = Time.time + random.Next(1000, 2000);
+        }
+        if (Time.time > _nextSpawnTimeWholeScreen)
+        {
+
+            tomatoes = new Tomatoes(random.Next(0, 1920), random.Next(900, 1080));
+            AddChild(tomatoes);
+
+            _nextSpawnTimeMiddle = Time.time + random.Next(1000, 2000);
+        }
+    }
+
     public void CheckGameOver()
     {
+        levelEasy();
+
         if (_player != null)
         {
             if (_player.LivesPlayer == -1)
@@ -82,28 +196,23 @@ public class Level : GameObject
 
     private void Update()
     {
-        if (Time.time > _nextSpawnTimeLeft)
+        if (_player.ScorePlayer < 1500)
         {
-            flowers = new Flowers(random.Next(0, 860), random.Next(900, 1080));
-            AddChild(flowers);
-
-            tomatoes = new Tomatoes(random.Next(0, 860), random.Next(900, 1080));
-            AddChild(tomatoes);
-
-            _nextSpawnTimeLeft = Time.time + random.Next(1000, 2000);
+            Console.WriteLine("easy");
+            levelEasy();
         }
-        if (Time.time > _nextSpawnTimeRight)
+        if (_player.ScorePlayer > 1500 && _player.ScorePlayer < 3000)
         {
-            flowers = new Flowers(random.Next(860, 1920), random.Next(900, 1080));
-            AddChild(flowers);
-
-            tomatoes = new Tomatoes(random.Next(860, 1920), random.Next(900, 1080));
-            AddChild(tomatoes);
-
-            _nextSpawnTimeRight = Time.time + random.Next(1000, 2000);
+            Console.WriteLine("middle");
+            levelMedium();
+        }
+        if (_player.ScorePlayer > 3000)
+        {
+            Console.WriteLine("hard");
+            levelHard();
         }
 
-        Console.WriteLine(_collectableCounter);
+
 
         CollectableAppear();
 
