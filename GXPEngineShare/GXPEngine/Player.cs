@@ -26,18 +26,22 @@ public class Player : AnimationSprite
     public int ScorePlayer, HighScorePlayer;
     public int LivesPlayer;
 
-    private int _numbOffFrames = 20;
+    private int _tomatoPush;
+    private int _numbOffFrames;
 
     private Sprite _hitBox;
+    Random random;
 
     public Player() : base("ForwardAnimation20FPS.png", 8, 3) // monocycle
     {
 
         _mouseHandler = new Mouse();
-        
+        random = new Random();
 
         scale = 0.3f;
-         
+
+        _tomatoPush = 15;
+        _numbOffFrames = 20;
         _isMoving = false;
 
         _currentSpeed = 0f;
@@ -97,7 +101,11 @@ public class Player : AnimationSprite
             {
                 Tomatoes tomato = other as Tomatoes;
                 tomato.Splash();
-                LivesPlayer--;
+                if (random.Next(2) == 0)
+                    _currentBalance -= _tomatoPush;
+                else
+                    _currentBalance += _tomatoPush;
+                
             }
             if (other is Flowers)
             {
