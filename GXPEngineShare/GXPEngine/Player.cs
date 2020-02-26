@@ -34,6 +34,8 @@ public class Player : AnimationSprite
     {
 
         _mouseHandler = new Mouse();
+        
+
         scale = 0.3f;
          
         _isMoving = false;
