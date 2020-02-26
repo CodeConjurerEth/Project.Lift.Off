@@ -85,7 +85,7 @@ public class Player : AnimationSprite
         _hitBox = new Sprite("hitboxplayer.png");
         AddChild(_hitBox);
         _hitBox.alpha = 0.5f;
-        _hitBox.SetXY(-180, -180);
+        _hitBox.SetXY(-180, -980);
     }
 
     private void handleHitBoxCollisions()
