@@ -1,7 +1,8 @@
 ﻿using GXPEngine;
 using System;
+using GXPEngine.Core;
 
-public class Player : AnimationSprite
+public class Player : Animation
 {
     private Mouse _mouseHandler;
     
@@ -27,21 +28,17 @@ public class Player : AnimationSprite
     public int LivesPlayer;
 
     private int _tomatoPush;
-    private int _numbOffFrames;
 
     private Sprite _hitBox;
     Random random;
 
-    public Player() : base("ForwardAnimation20FPS.png", 8, 3) // monocycle
+    public Player() : base("Clown_SS_60_FPS_PER_CYCLE_256PX.png", 8, 23) // monocycle
     {
-
         _mouseHandler = new Mouse();
         random = new Random();
 
-        scale = 0.3f;
 
         _tomatoPush = 15;
-        _numbOffFrames = 20;
         _isMoving = false;
 
         _currentSpeed = 0f;
@@ -57,10 +54,13 @@ public class Player : AnimationSprite
         _windToLeft = true;
         _windSpeed = 0.1f;
 
+        scale = 0.3f;
+
         ScorePlayer = 0;
         LivesPlayer = 2;
 
-        
+
+
         AddChild(_mouseHandler);
 
         hitBox();
@@ -75,13 +75,6 @@ public class Player : AnimationSprite
     {
         return LivesPlayer;
     }
-    private void walkingClown()
-    {
-
-        int frame = (int)(this.x / 5) % _numbOffFrames;
-        SetFrame(frame);
-    }
-
 
   
     private void hitBox()
@@ -123,6 +116,18 @@ public class Player : AnimationSprite
         }
     }
 
+    private void animationHandler()
+    {
+        if (Input.GetKey(Key.D) | (Input.GetKey(Key.A)))
+        {
+            walkingAnimation(60);
+        }
+        else
+        {
+            //idleAnimation(60, 119);
+        }
+    }
+
     private void handleInput()
     {
 
@@ -137,7 +142,6 @@ public class Player : AnimationSprite
                 {
                     _currentBalance -= _balanceSpeed;
                 }
-                //walkingClown();
             }
         }
         else if (Input.GetKey('d') || Input.GetKey('D'))
@@ -149,7 +153,6 @@ public class Player : AnimationSprite
                 {
                     _currentBalance -= _balanceSpeed;
                 }
-                walkingClown();
             }
             
         }
@@ -162,7 +165,6 @@ public class Player : AnimationSprite
                 {
                     _currentBalance += _balanceSpeed;
                 }
-                walkingClown();
             }
         }
     }
@@ -246,6 +248,7 @@ public class Player : AnimationSprite
         wind();
         balanceClown();
         handleHitBoxCollisions();
+        animationHandler();
     }
 
 }
