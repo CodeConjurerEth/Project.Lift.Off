@@ -124,6 +124,11 @@ public class Player : Animation
         {
             idleAnimation(19, 20);
         }
+        if (Math.Abs(_currentBalance) > 45 && Math.Abs(_currentBalance) < 60)
+        {
+            almostFallingAnimation(39, 20);
+
+        }
     }
 
     private void handleInput()

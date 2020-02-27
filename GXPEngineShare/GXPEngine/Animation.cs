@@ -38,7 +38,16 @@ public class Animation : AnimationSprite
     _animationTimer += Time.deltaTime;
         int currentFrame = (int)(_animationTimer / _frameInterval) % _numbOfFram + _startFra;
         SetFrame(currentFrame);
+    }
 
-       // Console.WriteLine(_currentFrame);
+    protected void almostFallingAnimation(int startFrame, int numberOfFrames)
+    {
+        _numbOfFram = numberOfFrames;
+        _startFra = startFrame;
+
+
+        _animationTimer += Time.deltaTime;
+        int currentFrame = (int)(_animationTimer / _frameInterval) % _numbOfFram + _startFra;
+        SetFrame(currentFrame);
     }
 }
