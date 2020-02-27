@@ -8,6 +8,8 @@ public class SceneManager : GameObject
 
     int state;
 
+    Main_Menu _mainMenu;
+
     Button _buttonGoToMainMenu, _buttonStartGame, _buttonShowInstructions, _buttonArrow1;
 
     Background _backgroundHowToPlay, _backgroundMenu;
@@ -37,14 +39,6 @@ public class SceneManager : GameObject
         {
             mainMenu();
         }
-        if (state == 3)
-        {
-            startLevel();
-        }
-        if (state == 4)
-        {
-            gameOver();
-        }
     }
 
     private void startUpScreen()
@@ -61,41 +55,7 @@ public class SceneManager : GameObject
 
     private void mainMenu()
     {
-        Main_Menu mainmenu = new Main_Menu();
-        AddChild(mainmenu);
-        if (Input.GetKeyDown(Key.Q))
-        {
-            state = 3;
-        }
-
+        _mainMenu = new Main_Menu();
+        AddChild(_mainMenu);
     }
-
-    private void startLevel()
-    {
-        //if (_hasStarted == false)
-        //{
-        //    _level = new Level();
-        //    AddChild(_level);
-        //    _hasStarted = true;
-        //}
-    }
-
-    private void gameOver()
-    {
-        if (_level != null)
-        {
-            if (_level.isTheGameOver == true)
-            {
-                GameOverScreen gameover = new GameOverScreen();
-                AddChild(gameover);
-            }
-        }
-    }
-
-    private void hideButtons()
-    {
-
-    }
-
-
 }
