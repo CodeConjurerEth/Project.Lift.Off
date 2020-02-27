@@ -122,7 +122,6 @@ namespace GXPEngine.Core
 			try {
 				bitmap = new Bitmap(filename);
 			} catch {
-
 				throw new Exception("Image " + filename + " cannot be found.");
 			}
 			SetBitmap(bitmap);
