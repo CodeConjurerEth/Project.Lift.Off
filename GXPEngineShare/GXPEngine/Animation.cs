@@ -9,12 +9,13 @@ public class Animation : AnimationSprite
     private int _startFra;
 
 
-    float _frameInterval = 10;
-    float _animationTimer = 0.0f;
+    float _frameInterval;
+    float _animationTimer;
 
-    public Animation(string animationFile, int column, int row) : base(animationFile, column, row)
+    public Animation(string animationFile, int column, int row) : base(animationFile, column, row, keepInCache:true)
     {
-
+        _frameInterval = 10;
+        _animationTimer = 0.0f;
     }
 
 

@@ -30,7 +30,7 @@ public class Player : Animation
     private float _limit;
     private Sprite _hitBox;
 
-    public Player() : base("FinalAnimation.png", 8, 10) // monocycle
+    public Player() : base("FinalAnimation.png", 8, 8) // monocycle
     {
         _mouseHandler = new Mouse();
 
@@ -79,7 +79,7 @@ public class Player : Animation
     {
         _hitBox = new Sprite("hitboxplayer.png");
         AddChild(_hitBox);
-        _hitBox.alpha = 0.5f;
+        _hitBox.alpha = 0.0f;
         _hitBox.SetXY(-180, -980);
     }
 

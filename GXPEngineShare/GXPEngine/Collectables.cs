@@ -20,16 +20,9 @@ public class Collectables : AnimationSprite
         this.x = _startX;
         this.y = _startY;
 
-<<<<<<< HEAD
-        //scale = .8f;
-=======
-<<<<<<< HEAD
         scale = 1.8f;
-=======
-        scale = 4.8f;
->>>>>>> d60d7bbc6277040e639965b99dae8cbfdc854620
 
->>>>>>> 019bba59299ac9da2e29617271656ad94155f713
+
         Timer timer = new Timer(5000, LateDestroy);
         AddChild(timer);
 
