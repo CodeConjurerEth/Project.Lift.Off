@@ -14,12 +14,8 @@ public class Animation : AnimationSprite
 
     public Animation(string animationFile, int column, int row) : base(animationFile, column, row, keepInCache:true)
     {
-<<<<<<< HEAD
-        _startFra = 0;
-=======
         _frameInterval = 10;
         _animationTimer = 0.0f;
->>>>>>> cca5989b066d381a5c765e7a0558d67d859d90ca
     }
 
 
@@ -49,9 +45,10 @@ public class Animation : AnimationSprite
         _numbOfFram = numberOfFrames;
         _startFra = startFrame;
 
+        float _frameIntervalAF = 20f;
 
         _animationTimer += Time.deltaTime;
-        int currentFrame = (int)(_animationTimer / _frameInterval) % _numbOfFram + _startFra;
+        int currentFrame = (int)(_animationTimer / _frameIntervalAF) % _numbOfFram + _startFra;
         SetFrame(currentFrame);
     }
 }
