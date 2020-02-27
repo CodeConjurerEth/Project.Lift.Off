@@ -17,6 +17,7 @@ public class Level : GameObject
     private int _nextSpawnTimeRight;
     private int _nextSpawnTimeMiddle;
     private int _nextSpawnTimeWholeScreen;
+    private bool _isSpawned;
 
     public int _collectableCounter;
 
@@ -26,6 +27,9 @@ public class Level : GameObject
 
     public bool isTheGameOver;
     private ScoreBoard scoreBoard;
+    private int nextTimer;
+    private int time;
+    private int i;
    
     public Level()
 	{
@@ -33,13 +37,18 @@ public class Level : GameObject
         crowdSetup();
         playerSetup();
 
+        _isSpawned = false;
         scoreBoard = new ScoreBoard("ScoreBoard.txt");
         isTheGameOver = false;
         _collectableCounter = 0;
+        i = 0;
 
         //Timer timer = new Timer(3000, LateDestroy);
         //AddChild(timer);
         random = new Random();
+
+        time = 5000;
+      
 
         HUD hud = new HUD(_player);
         AddChild(hud);
@@ -48,25 +57,30 @@ public class Level : GameObject
 
     private void CollectableAppear()
     {
-        if (_player.ScorePlayer == 400 && _collectableCounter ==0)
-        {
-            _collectableCounter++;
+        if(_isSpawned == false)
+        { 
+            if (_player.ScorePlayer == i*2000 + 1000)
+            {
 
-            collectablesLeft = new Collectables(105, 330);
-            AddChild(collectablesLeft);
+                collectablesLeft = new Collectables(105, 330);
+                collectablesRight = new Collectables(1715, 330);
 
-            collectablesRight = new Collectables(1715, 330);
-            AddChild(collectablesRight);
+                _isSpawned = true;
+
+                nextTimer = Time.time + time;
+
+                AddChild(collectablesLeft);
+                AddChild(collectablesRight);
+
+                
+                i++;
+
+               
+            }
         }
-        if (_player.ScorePlayer == 2000 && _collectableCounter == 1)
-        {
-            _collectableCounter++;
-            collectablesLeft = new Collectables(105, 330);
-            AddChild(collectablesLeft);
-
-            collectablesRight = new Collectables(1715, 330);
-            AddChild(collectablesRight);
-        }
+        if (Time.time >= nextTimer)
+            _isSpawned = false;
+        Console.WriteLine(_isSpawned);
     }
 
     private void levelEasy()
@@ -246,4 +260,5 @@ public class Level : GameObject
         _crowd = new Sprite("Crowd.png");
         AddChild(_crowd);
     }
+  
 }

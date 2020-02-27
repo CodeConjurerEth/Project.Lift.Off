@@ -12,7 +12,7 @@ public class Collectables : AnimationSprite
 
     private float _animationTimer = 0;
 
- 
+    public bool _isSpawned;
 
 
     public Collectables(int _startX, int _startY) : base("barry.png", 7, 1)
@@ -21,7 +21,6 @@ public class Collectables : AnimationSprite
         this.y = _startY;
 
         scale = 1.8f;
-
         Timer timer = new Timer(5000, LateDestroy);
         AddChild(timer);
 
