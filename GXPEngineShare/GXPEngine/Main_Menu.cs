@@ -103,7 +103,7 @@ namespace GXPEngine
         {
             if (state == HOWTOPL && Input.GetKeyDown(Key.A))
             {
-                Console.WriteLine("state = start");
+               // Console.WriteLine("state = start");
                 state = START;
                 _buttonArrow1.Mirror(false, true);
                 _buttonArrow1.rotation = -10;
@@ -114,7 +114,7 @@ namespace GXPEngine
 
             if (state == START && Input.GetKeyDown(Key.D))
             {
-                Console.WriteLine("state = howtoplay");
+                //Console.WriteLine("state = howtoplay");
                 state = HOWTOPL;
                 _buttonArrow1.Mirror(true, true);
                 _buttonArrow1.rotation = 10;

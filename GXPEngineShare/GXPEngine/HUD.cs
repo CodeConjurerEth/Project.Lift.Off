@@ -57,8 +57,8 @@ namespace GXPEngine
         {
             _arcPointer.x = _player.x;
 
-
-            _arcPointer.rotation = _player.GetMouseX().Map(0, 1920, -_player.GetMaxBalance()/2, _player.GetMaxBalance()/2);
+            if (_player.GetMouseX() >= 0 && _player.GetMouseX() <= 1920)
+                _arcPointer.rotation = _player.GetMouseX().Map(0, 1920, -_player.GetMaxBalance()/2, _player.GetMaxBalance()/2);
         }
     }
 }

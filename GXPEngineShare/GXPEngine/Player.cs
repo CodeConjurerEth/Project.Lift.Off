@@ -128,7 +128,6 @@ public class Player : Animation
 
     private void handleInput()
     {
-
         _mouseX = Input.mouseX;
 
         if ((Input.GetKey('d') || Input.GetKey('D')) && (Input.GetKey('a') || Input.GetKey('A')))
@@ -178,8 +177,9 @@ public class Player : Animation
 
     private void balanceClown()
     {
-      //  if (_mouseHandler.IsMoving() == true)
-        _currentBalance += _mouseX.Map(0, _width, -_balanceDifficulty, _balanceDifficulty);
+        //  if (_mouseHandler.IsMoving() == true)
+        if (_mouseX >= 0 && _mouseX <= 1920)
+            _currentBalance += _mouseX.Map(0, _width, -_balanceDifficulty, _balanceDifficulty);
 
         if (_currentBalance <= -_maxBalance || _currentBalance >= _maxBalance)
         { 

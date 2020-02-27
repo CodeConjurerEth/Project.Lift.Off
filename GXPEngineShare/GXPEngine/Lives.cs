@@ -10,8 +10,8 @@ public class Lives : AnimationSprite
 
         _player = player;
 
-        this.x = 1820;
-        this.y = 10;
+        this.x = 1730;
+        this.y = -10;
     }
 
     public void Update()

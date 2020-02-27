@@ -38,6 +38,6 @@ public class Animation : AnimationSprite
         int currentFrame = (int)(_animationTimer / _frameInterval) % _numbOfFram + _startFra;
         SetFrame(currentFrame);
 
-        Console.WriteLine(_currentFrame);
+       // Console.WriteLine(_currentFrame);
     }
 }
