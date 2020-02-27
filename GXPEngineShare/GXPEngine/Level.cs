@@ -7,7 +7,7 @@ public class Level : GameObject
     //private HUD _HUD
     private Player _player;
     private Background _backgroundLevel;
-    private Sprite _crowd;
+    private AnimationSprite _crowd;
     Tomatoes tomatoes;
     Flowers flowers;
 
@@ -30,11 +30,20 @@ public class Level : GameObject
     private int nextTimer;
     private int time;
     private int i;
-   
+
+    private int _startFrame = 0;
+    private int _numberOfFrames = 2;
+
+    private float _frameInterval = 250f;
+    private float _animationTimer = 0.0f;
+
     public Level()
 	{
         backgroundLevel();
-        crowdSetup();
+        //crowdSetup();
+        Crowd crowd = new Crowd();
+        AddChild(crowd);
+
         playerSetup();
 
         _isSpawned = false;
@@ -48,7 +57,6 @@ public class Level : GameObject
         random = new Random();
 
         time = 5000;
-      
 
         HUD hud = new HUD(_player);
         AddChild(hud);
@@ -255,10 +263,14 @@ public class Level : GameObject
         AddChild(_backgroundLevel);
     }
 
-    private void crowdSetup()
-    {
-        _crowd = new Sprite("Crowd.png");
-        AddChild(_crowd);
-    }
+    //private void crowdSetup()
+    //{
+    //    _crowd = new AnimationSprite("crowdanimation.png", 1, 2);
+    //    AddChild(_crowd);
+
+    //    _animationTimer += Time.deltaTime;
+    //    int currentFrame = (int)(_animationTimer / _frameInterval) % _numberOfFrames + _startFrame;
+    //    _crowd.SetFrame(currentFrame);
+    //}
   
 }
