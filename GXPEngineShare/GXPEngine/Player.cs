@@ -30,13 +30,7 @@ public class Player : Animation
 
     private Sprite _hitBox;
 
-<<<<<<< HEAD
-    //public Player() : base("ForwardAnimation20FPS.png", 8, 3) // monocycle
     public Player() : base("Clown_Idle_SS.png", 7, 9) // monocycle
-=======
-
-    public Player() : base("ForwardAnimation20FPS.png", 8, 3) // monocycle
->>>>>>> 89c867cd1bccebc215fc22929c9c60bb9f283a2c
     {
         _mouseHandler = new Mouse();
 
