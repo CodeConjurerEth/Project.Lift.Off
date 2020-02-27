@@ -18,27 +18,32 @@ public class Level : GameObject
     private int _nextSpawnTimeMiddle;
     private int _nextSpawnTimeWholeScreen;
 
-    public int _collectableCounter = 0;
+    public int _collectableCounter;
 
-    Random random = new Random();
+    Random random;
 
     private int width = 1920, height = 1080;
 
     public bool isTheGameOver;
-
+    private ScoreBoard scoreBoard;
    
     public Level()
 	{
         backgroundLevel();
         crowdSetup();
-
-        _player = new Player();
         playerSetup();
-        AddChild(_player);
+
+        scoreBoard = new ScoreBoard("ScoreBoard.txt");
         isTheGameOver = false;
+        _collectableCounter = 0;
+
+        //Timer timer = new Timer(3000, LateDestroy);
+        //AddChild(timer);
+        random = new Random();
 
         HUD hud = new HUD(_player);
         AddChild(hud);
+
     }
 
     private void CollectableAppear()
@@ -185,6 +190,7 @@ public class Level : GameObject
             if (_player.LivesPlayer == -1)
             {
                 isTheGameOver = true;
+                scoreBoard.AddLine(_player.GetScore().ToString());
                 Destroy();
             }
         }
@@ -218,9 +224,13 @@ public class Level : GameObject
 
     private void playerSetup()
     {
+        _player = new Player();
+
         _player.SetOrigin(512, 1024);
         _player.x = width / 2;
         _player.y = height / 2 - 113;
+
+        AddChild(_player);
     }
 
     public Player GetPlayer()

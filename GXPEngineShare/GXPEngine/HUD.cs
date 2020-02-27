@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Collections.Generic;
 
 namespace GXPEngine
 {
@@ -15,12 +16,12 @@ namespace GXPEngine
         {
             _lives = new Lives(player);
             _player = player;
-            _arialFont = new Font("Arial", 20);
+            _arialFont = new Font("Arial", 50);
             _arc = new Arc();
 
             AddChild(_arc);
             AddChild(_lives);
-        }
+        } 
 
         void Update()
         {

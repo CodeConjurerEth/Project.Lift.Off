@@ -90,6 +90,8 @@
     <Compile Include="Player.cs" />
     <Compile Include="Main_Menu.cs" />
     <Compile Include="SceneManager.cs" />
+    <Compile Include="ScoreBoard_2.cs" />
+    <Compile Include="ScoreHUD.cs" />
     <Compile Include="StartUpScreen.cs" />
     <Compile Include="Timer.cs" />
     <Compile Include="Tomatoes.cs" />

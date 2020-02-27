@@ -32,7 +32,12 @@ public class Player : Animation
     private Sprite _hitBox;
     Random random;
 
+<<<<<<< HEAD
     public Player() : base("Clown_SS_60_FPS_PER_CYCLE_256PX.png", 8, 23) // monocycle
+=======
+
+    public Player() : base("ForwardAnimation20FPS.png", 8, 3) // monocycle
+>>>>>>> 1b5c0a8feac24a5e56c88e1b089d6747e79e09b6
     {
         _mouseHandler = new Mouse();
         random = new Random();
@@ -94,7 +99,7 @@ public class Player : Animation
             {
                 Tomatoes tomato = other as Tomatoes;
                 tomato.Splash();
-                if (random.Next(2) == 0)
+                if (_currentBalance <= 0f)
                     _currentBalance -= _tomatoPush;
                 else
                     _currentBalance += _tomatoPush;
