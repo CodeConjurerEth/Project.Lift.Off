@@ -10,6 +10,9 @@ public class ClownBalance : Game
         StartUpScreen startUpScreen = new StartUpScreen();
         AddChild(startUpScreen);
 
+        //Main_Menu mainMenu = new Main_Menu();
+        //AddChild(mainMenu);
+
         //SceneManager scenemanager = new SceneManager();
         //AddChild(scenemanager);
 
