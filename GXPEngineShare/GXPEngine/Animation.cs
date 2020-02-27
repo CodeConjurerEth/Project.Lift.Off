@@ -10,7 +10,10 @@ public class Animation : AnimationSprite
 
     private int _numbOfFram;
     private int _startFra;
-    private float _animationTimer = 0;
+
+
+    float _frameInterval = 10;
+    float _animationTimer = 0.0f;
 
     public Animation(string animationFile, int column, int row) : base(animationFile, column, row)
     {
@@ -27,28 +30,16 @@ public class Animation : AnimationSprite
         SetFrame(frame);
     }
 
-
-    protected void idleAnimation(int numberOfFrames, int startFrame)
+    protected void idleAnimation(int startFrame, int numberOfFrames)
     {
         _numbOfFram = numberOfFrames;
         _startFra = startFrame;
 
-        int frame = (int)(this.x / 10) % _numbOfFram;
-        SetFrame(_startFra);
-    }
 
-
-
-
-    protected void dyingAnimation(int startFrame, int numberOfFrames)
-    {
-        _numbOfFram = numberOfFrames;
-        _startFra = startFrame;
-        float frameInterval = 250f;
-        float animationTimer = 0.0f;
-
-        animationTimer += Time.deltaTime;
-        int currentFrame = (int)(animationTimer / frameInterval) % numberOfFrames + startFrame;
+    _animationTimer += Time.deltaTime;
+        int currentFrame = (int)(_animationTimer / _frameInterval) % _numbOfFram + _startFra;
         SetFrame(currentFrame);
+
+        Console.WriteLine(_currentFrame);
     }
 }
