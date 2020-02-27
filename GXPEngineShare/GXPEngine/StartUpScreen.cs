@@ -10,18 +10,36 @@ namespace GXPEngine
 
         Background _backgroundStartUp;
 
+        private Sound _music; 
+        private SoundChannel _backgroundMusic;
+
+        
+
         private bool _hasStarted;
 
         public StartUpScreen() : base()
         {
             _hasStarted = false;
 
+            startMusic();
+
             _backgroundStartUp = new Background("Startup.png");
             AddChild(_backgroundStartUp);
+
+           
+        }
+
+        void startMusic()
+        {
+            _music = new Sound("golden_sunrise.mp3", true, true);
+            _music.Play();
+
         }
 
         private void Update()
         {
+           
+
             if (Input.GetKeyDown(Key.ENTER))
             {
                 if (screenHandler == null)
@@ -44,6 +62,7 @@ namespace GXPEngine
                 AddChild(screenHandler);
             }
         }
+
 
         private void resetLevel()
         {
