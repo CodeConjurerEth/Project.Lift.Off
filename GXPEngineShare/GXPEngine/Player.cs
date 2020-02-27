@@ -16,7 +16,6 @@ public class Player : Animation
     private float _balanceSpeed;
     private float _balanceDifficulty;
 
-    private bool _windToLeft;
     private float _windSpeed;
 
     private float _width = 1920, _height = 1080;
@@ -51,8 +50,7 @@ public class Player : Animation
         _balanceSpeed = 0.5f; // (movement)
         _balanceDifficulty = 0.5f;  // Bigger == faster (mouse)
 
-        _windToLeft = true;
-        _windSpeed = 0.1f;
+        _windSpeed = 0.5f; // wind pushes in the direction you are tilting
 
         scale = 0.3f;
 
@@ -94,7 +92,7 @@ public class Player : Animation
             {
                 Tomatoes tomato = other as Tomatoes;
                 tomato.Splash();
-                if (_currentBalance <= 0f)
+                if (_mouseX <= _width/2)
                     _currentBalance -= _tomatoPush;
                 else
                     _currentBalance += _tomatoPush;
@@ -201,15 +199,13 @@ public class Player : Animation
         else
             _isMoving = true;
 
-        if (_isMoving)
-        {
-            if (_currentSpeed > 0)
-                _currentSpeed -= _friction;
-            else if (_currentSpeed < 0)
-                _currentSpeed += _friction;
+        if (_currentSpeed > 0)
+            _currentSpeed -= _friction;
+        else if (_currentSpeed < 0)
+            _currentSpeed += _friction;
 
-            this.x += _currentSpeed;
-        }
+        this.x += _currentSpeed;
+        
         
     }
 
@@ -237,26 +233,15 @@ public class Player : Animation
 
     private void wind()
     {
-        if(_windToLeft == true)
+        if (_isMoving != false)
         {
-            if (_currentSpeed > -_maxSpeed - _currentSpeed)
+            if (_mouseX < _width / 2)
             {
-                _currentSpeed -= _windSpeed;
-                if (_currentBalance < _maxBalance)
-                {
-                    _currentBalance += _balanceSpeed*_windSpeed;
-                }
+                _currentBalance -= _balanceSpeed * _windSpeed;
             }
-        }
-        else //wind to right
-        {
-            if (_currentSpeed < _maxSpeed - _currentSpeed)
+            else
             {
-                _currentSpeed += _windSpeed;
-                if (_currentBalance > -_maxBalance)
-                {
-                    _currentBalance -= _balanceSpeed*_windSpeed;
-                }
+                _currentBalance += _balanceSpeed * _windSpeed;
             }
         }
     }
