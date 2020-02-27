@@ -201,17 +201,14 @@ public class Level : GameObject
     {
         if (_player.ScorePlayer < 1500)
         {
-            Console.WriteLine("easy");
             levelEasy();
         }
         if (_player.ScorePlayer > 1500 && _player.ScorePlayer < 3000)
         {
-            Console.WriteLine("middle");
             levelMedium();
         }
         if (_player.ScorePlayer > 3000)
         {
-            Console.WriteLine("hard");
             levelHard();
         }
 

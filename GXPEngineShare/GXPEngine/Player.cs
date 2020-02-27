@@ -5,7 +5,6 @@ using GXPEngine.Core;
 public class Player : Animation
 {
     private Mouse _mouseHandler;
-    
 
     private bool _isMoving;
 
@@ -32,12 +31,8 @@ public class Player : Animation
     private Sprite _hitBox;
     Random random;
 
-<<<<<<< HEAD
-    public Player() : base("Clown_SS_60_FPS_PER_CYCLE_256PX.png", 8, 23) // monocycle
-=======
-
-    public Player() : base("ForwardAnimation20FPS.png", 8, 3) // monocycle
->>>>>>> 1b5c0a8feac24a5e56c88e1b089d6747e79e09b6
+    //public Player() : base("ForwardAnimation20FPS.png", 8, 3) // monocycle
+    public Player() : base("Clown_Idle_SS.png", 7, 9) // monocycle
     {
         _mouseHandler = new Mouse();
         random = new Random();
@@ -127,9 +122,9 @@ public class Player : Animation
         {
             walkingAnimation(60);
         }
-        else
+        else 
         {
-            //idleAnimation(60, 119);
+            idleAnimation(0, 60);
         }
     }
 
