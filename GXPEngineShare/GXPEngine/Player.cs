@@ -30,7 +30,7 @@ public class Player : Animation
     private float _limit;
     private Sprite _hitBox;
 
-    public Player() : base("Clown_Idle_SS.png", 7, 9) // monocycle
+    public Player() : base("FinalAnimation.png", 8, 10) // monocycle
     {
         _mouseHandler = new Mouse();
 
@@ -118,11 +118,11 @@ public class Player : Animation
     {
         if (Input.GetKey(Key.D) | (Input.GetKey(Key.A)))
         {
-            walkingAnimation(60);
+            walkingAnimation(20);
         }
         else 
         {
-            idleAnimation(0, 60);
+            idleAnimation(19, 20);
         }
     }
 

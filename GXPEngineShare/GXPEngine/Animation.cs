@@ -5,9 +5,6 @@ using GXPEngine.Core;
 
 public class Animation : AnimationSprite
 {
-    public int leftBoundry = -50;
-    public int rightBoundry = 750;
-
     private int _numbOfFram;
     private int _startFra;
 
@@ -24,6 +21,7 @@ public class Animation : AnimationSprite
 
     protected void walkingAnimation(int numberOffFrames)
     {
+
         _numbOfFram = numberOffFrames;
 
         int frame = (int)(this.x / 5) % _numbOfFram;
