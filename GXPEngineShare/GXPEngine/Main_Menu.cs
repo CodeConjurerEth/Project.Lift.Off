@@ -2,11 +2,15 @@
 
 namespace GXPEngine
 {
-    public class Main_Menu : GameObject
+    public class Main_Menu : StartUpScreen
     {
         Button _buttonStartGame, _buttonShowInstructions, _buttonArrow1;
 
         Background _backgroundHowToPlay, _backgroundMenu;
+
+        private SoundChannel _levelSound;
+
+        private Sound _levcelSound;
 
         Level _level;
 
@@ -46,15 +50,22 @@ namespace GXPEngine
         {
             switchStates();
 
-            if (state == START && Input.GetKeyDown(Key.ENTER))
-            {
-                startGame();
-                hideButtons();
-            }
+
             if (_level == null)
             {
+                if (state == START && Input.GetKeyDown(Key.ENTER) && _level == null)
+                {
+                    _pressButtonSound.Play();
+                    _backgroundMusic.Stop();
+                    Sound backgroundMusic = new Sound("levelsound.wav", true, true);
+                    _levelSound = backgroundMusic.Play();
+                    startGame();
+                    hideButtons();
+                }
+           
                 if (state == HOWTOPL && Input.GetKeyDown(Key.ENTER))
                 {
+                    _pressButtonSound.Play();
                     hideButtons();
                     backgroundHowToPlay();
                     _backgroundHowToPlayIsShown = true;
@@ -65,6 +76,7 @@ namespace GXPEngine
             {
                 if (_level.isTheGameOver == true && Input.GetKeyDown(Key.ENTER))
                 {
+                    _pressButtonSound.Play();
                     resetLevel();
                     _buttonArrow1 = new Button("arrow.png");
                     AddChild(_buttonArrow1);
@@ -78,6 +90,7 @@ namespace GXPEngine
 
             if (_backgroundHowToPlayIsShown == true && Input.GetKeyDown(Key.A))
             {
+                _pressButtonSound.Play();
                 resetLevel();
                 _buttonArrow1 = new Button("arrow.png");
                 AddChild(_buttonArrow1);
@@ -94,6 +107,8 @@ namespace GXPEngine
             {
                 if (_level.isTheGameOver == true)
                 {
+                    _levelSound.Stop();
+                   
                     backgroundGameOver();
                 }
             }
@@ -101,9 +116,10 @@ namespace GXPEngine
 
         private void switchStates()
         {
-            if (state == HOWTOPL && Input.GetKeyDown(Key.A))
+            if (state == HOWTOPL && Input.GetKeyDown(Key.A) && _level == null)
             {
-               // Console.WriteLine("state = start");
+                // Console.WriteLine("state = start");
+                _pressButtonSound.Play();
                 state = START;
                 _buttonArrow1.Mirror(false, true);
                 _buttonArrow1.rotation = -10;
@@ -112,8 +128,9 @@ namespace GXPEngine
                 _buttonArrow1.y = 810;
             }
 
-            if (state == START && Input.GetKeyDown(Key.D))
+            if (state == START && Input.GetKeyDown(Key.D) && _level == null)
             {
+                _pressButtonSound.Play();
                 //Console.WriteLine("state = howtoplay");
                 state = HOWTOPL;
                 _buttonArrow1.Mirror(true, true);
@@ -154,6 +171,8 @@ namespace GXPEngine
 
         private void startGame()
         {
+
+
             if (_hasStarted == false)
             {
                 _level = new Level();

@@ -9,6 +9,8 @@ public class Player : Animation
     private Sound _cheerHitSound;
     private Sound _hitTomatoSound;
     private Sound _hitTomatoSound2;
+    private Sound _collectFlower;
+    private Sound _hitBalloon;
 
     Random random;
 
@@ -45,6 +47,8 @@ public class Player : Animation
         _cheerHitSound = new Sound("cheering.wav");
         _hitTomatoSound = new Sound("splat1.wav");
         _hitTomatoSound2 = new Sound("splat2.wav");
+        _collectFlower = new Sound("pickupflower.wav");
+        _hitBalloon = new Sound("hitBalloon.wav");
 
         random = new Random();
 
@@ -128,12 +132,14 @@ public class Player : Animation
             }
             if (other is Flowers)
             {
+                _collectFlower.Play();
                 Flowers flowers = other as Flowers;
                 flowers.Catched();
                 ScorePlayer = ScorePlayer + 200;
             }
             if (other is Collectables)
             {
+                _hitBalloon.Play();
                 Collectables collectables = other as Collectables;
                 collectables.destroyTheCollectable();
                 ScorePlayer = ScorePlayer + 600;
