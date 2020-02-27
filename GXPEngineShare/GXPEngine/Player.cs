@@ -231,7 +231,7 @@ public class Player : Animation
     private void resetPlayer()
     {
         this.x = _width / 2;
-        this.y = _height / 2 - 200;
+        this.y = _height / 2 - 113; //87
         _currentBalance = 0;
 
     }
@@ -260,6 +260,7 @@ public class Player : Animation
         handleHitBoxCollisions();
         animationHandler();
         limitCheck();
+        Console.WriteLine(_mouseX);
     }
 
     public float GetMouseX()

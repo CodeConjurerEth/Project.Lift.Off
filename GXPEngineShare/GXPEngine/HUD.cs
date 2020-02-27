@@ -35,21 +35,23 @@ namespace GXPEngine
         void Update()
         {
             graphics.Clear(Color.Empty);
-            graphics.DrawString(_player.ScorePlayer.ToString(), _font, Brushes.White, 50, 16);
+            graphics.DrawString(_player.ScorePlayer.ToString(), _font, Brushes.White, 75, 50);
             arcFollow();
             pointerFollow();
         }
 
         private void arcSetup()
         {
-            _arc.y = _player.y - _player.height - 20;
+            _arc.y = _player.y - _player.height - 113 + 20;
         }
 
         private void pointerSetup()
         {
             _arcPointer = new Sprite("arcpointer.png");
+            _arcPointer.width = 10;
             _arcPointer.SetOrigin(_arcPointer.width / 2, _player.y);
-            _arcPointer.y = _player.y;
+
+            _arcPointer.y = _player.y + 20;
         }
 
         private void arcFollow()
@@ -62,7 +64,7 @@ namespace GXPEngine
             _arcPointer.x = _player.x;
 
             if (_player.GetMouseX() >= 0 && _player.GetMouseX() <= 1920)
-                _arcPointer.rotation = _player.GetMouseX().Map(0, 1920, -_player.GetMaxBalance()/1.5f, _player.GetMaxBalance()/1.5f);
+                _arcPointer.rotation = _player.GetMouseX().Map(0, 1920, -_player.GetMaxBalance()/1.7f, _player.GetMaxBalance()/1.7f);
         }
     }
 }
