@@ -12,7 +12,7 @@ public class ScoreHUD : Canvas
     {
         _scoreBoard = new ScoreBoard("ScoreBoard.txt");
 
-        _arialFont = new Font("Arial", 80);
+        _arialFont = new Font("Carnevalee Freakshow", 80);
 
         for (int i = 0; i <= _scoreBoard.GetHighScores().Count - 1; i++)
         {
