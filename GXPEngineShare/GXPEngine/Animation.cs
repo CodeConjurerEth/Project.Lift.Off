@@ -51,4 +51,16 @@ public class Animation : AnimationSprite
         int currentFrame = (int)(_animationTimer / _frameIntervalAF) % _numbOfFram + _startFra;
         SetFrame(currentFrame);
     }
+
+    protected void crowdAnimation(int startFrame, int numberOfFrames)
+    {
+        _numbOfFram = numberOfFrames;
+        _startFra = startFrame;
+
+        float _frameIntervalAF = 600f;
+
+        _animationTimer += Time.deltaTime;
+        int currentFrame = (int)(_animationTimer / _frameIntervalAF) % _numbOfFram + _startFra;
+        SetFrame(currentFrame);
+    }
 }
