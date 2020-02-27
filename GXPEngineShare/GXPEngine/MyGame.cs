@@ -1,10 +1,10 @@
 using System;									// System contains a lot of default C# libraries 
-using System.Drawing;                           // System.Drawing contains a library used for canvas drawing below
+using System.Drawing.Text;                           // System.Drawing contains a library used for canvas drawing below
 using GXPEngine;								// GXPEngine contains the engine
 
 public class ClownBalance : Game
 {
-    public ClownBalance() : base(1920, 1080, false,true,960,540)      // Create a window that's 800x600 and NOT fullscreen
+    public ClownBalance() : base(1920, 1080, false,true)      // Create a window that's 800x600 and NOT fullscreen
     {
 
         StartUpScreen startUpScreen = new StartUpScreen();
