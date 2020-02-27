@@ -239,7 +239,7 @@ public class Level : GameObject
 
         _player.SetOrigin(512, 1024);
         _player.x = width / 2;
-        _player.y = height / 2 - 113;
+        _player.y = height / 2 - 200;
 
         AddChild(_player);
     }

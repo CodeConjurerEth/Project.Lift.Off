@@ -38,14 +38,14 @@ namespace GXPEngine
 
         private void arcSetup()
         {
-            _arc.y = _player.y - _player.height - 50;
+            _arc.y = _player.y - _player.height - 20;
         }
 
         private void pointerSetup()
         {
             _arcPointer = new Sprite("arcpointer.png");
             _arcPointer.SetOrigin(_arcPointer.width / 2, _player.y);
-            _arcPointer.y = 60 + _player.y;
+            _arcPointer.y = _player.y;
         }
 
         private void arcFollow()
@@ -58,7 +58,7 @@ namespace GXPEngine
             _arcPointer.x = _player.x;
 
             if (_player.GetMouseX() >= 0 && _player.GetMouseX() <= 1920)
-                _arcPointer.rotation = _player.GetMouseX().Map(0, 1920, -_player.GetMaxBalance()/2, _player.GetMaxBalance()/2);
+                _arcPointer.rotation = _player.GetMouseX().Map(0, 1920, -_player.GetMaxBalance()/1.5f, _player.GetMaxBalance()/1.5f);
         }
     }
 }

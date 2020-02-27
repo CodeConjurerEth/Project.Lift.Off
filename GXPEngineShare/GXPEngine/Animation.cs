@@ -14,7 +14,7 @@ public class Animation : AnimationSprite
 
     public Animation(string animationFile, int column, int row) : base(animationFile, column, row)
     {
-
+        _startFra = 0;
     }
 
 

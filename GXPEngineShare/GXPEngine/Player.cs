@@ -226,7 +226,7 @@ public class Player : Animation
     private void resetPlayer()
     {
         this.x = _width / 2;
-        this.y = _height / 2 - 113;
+        this.y = _height / 2 - 200;
         _currentBalance = 0;
 
     }
