@@ -6,6 +6,14 @@ public class Player : Animation
 {
     private Mouse _mouseHandler;
 
+    private Sound _cheerHitSound;
+    private Sound _hitTomatoSound;
+    private Sound _hitTomatoSound2;
+
+    Random random;
+
+    private int _randomHitSound;
+
     private bool _isMoving;
 
     private float _currentSpeed, _maxSpeed;
@@ -34,6 +42,11 @@ public class Player : Animation
     {
         _mouseHandler = new Mouse();
 
+        _cheerHitSound = new Sound("cheering.wav");
+        _hitTomatoSound = new Sound("splat1.wav");
+        _hitTomatoSound2 = new Sound("splat2.wav");
+
+        random = new Random();
 
         _tomatoPush = 15;
         _isMoving = false;
@@ -74,6 +87,19 @@ public class Player : Animation
         return LivesPlayer;
     }
 
+    private void randomSound()
+    {
+        _randomHitSound = random.Next(2);
+        if (_randomHitSound == 0 )
+        {
+            _hitTomatoSound.Play();
+        }
+        else
+        {
+            _hitTomatoSound2.Play();
+        }
+        Console.WriteLine(random.Next(2));
+    }
   
     private void hitBox()
     {
@@ -90,6 +116,8 @@ public class Player : Animation
 
             if (other is Tomatoes)
             {
+                randomSound();
+
                 Tomatoes tomato = other as Tomatoes;
                 tomato.Splash();
                 if (_mouseX <= _width/2)
@@ -230,6 +258,7 @@ public class Player : Animation
 
     private void resetPlayer()
     {
+        _cheerHitSound.Play();
         this.x = _width / 2;
         this.y = _height / 2 - 200;
         _currentBalance = 0;

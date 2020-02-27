@@ -25,13 +25,11 @@ namespace GXPEngine
 
             _backgroundStartUp = new Background("Startup.png");
             AddChild(_backgroundStartUp);
-
-           
         }
 
         void startMusic()
         {
-            _music = new Sound("golden_sunrise.mp3", true, true);
+            _music = new Sound("backgroundmusic.wav", true, true);
             _music.Play();
 
         }

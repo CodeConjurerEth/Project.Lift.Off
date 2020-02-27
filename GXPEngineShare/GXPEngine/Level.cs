@@ -88,7 +88,6 @@ public class Level : GameObject
         }
         if (Time.time >= nextTimer)
             _isSpawned = false;
-        Console.WriteLine(_isSpawned);
     }
 
     private void levelEasy()
