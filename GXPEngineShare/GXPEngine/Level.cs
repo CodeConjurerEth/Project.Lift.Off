@@ -44,7 +44,7 @@ public class Level : GameObject
         Crowd crowd = new Crowd();
         AddChild(crowd);
 
-        playerSetup();
+        
 
         _isSpawned = false;
         scoreBoard = new ScoreBoard("ScoreBoard.txt");
@@ -58,20 +58,26 @@ public class Level : GameObject
 
         time = 5000;
 
+        playerSetup();
+
         HUD hud = new HUD(_player);
         AddChild(hud);
+        AddChild(_player);
 
     }
 
     private void CollectableAppear()
     {
-        if(_isSpawned == false)
-        { 
-            if (_player.ScorePlayer == i*2000 + 1000)
-            {
 
-                collectablesLeft = new Collectables(105, 330);
-                collectablesRight = new Collectables(1715, 330);
+        if (_player.GetScore() == i * 2000 + 1000)
+        {
+            if (_isSpawned == false)
+            {
+                collectablesLeft = new Collectables(230, 400);
+                collectablesRight = new Collectables(1845, 400);
+
+                collectablesLeft.SetOrigin(collectablesLeft.width / 2, collectablesLeft.height / 2);
+                collectablesRight.SetOrigin(collectablesRight.width / 2, collectablesRight.height / 2);
 
                 _isSpawned = true;
 
@@ -81,13 +87,20 @@ public class Level : GameObject
                 AddChild(collectablesRight);
 
                 
-                i++;
 
-               
+                if (Time.time >= nextTimer)
+                {
+                    _isSpawned = false;
+                }
             }
+            i++;
         }
+<<<<<<< HEAD
         if (Time.time >= nextTimer)
             _isSpawned = false;
+=======
+        
+>>>>>>> 513fd47578cd46073cba40257a19632788ff28e8
     }
 
     private void levelEasy()
@@ -246,9 +259,7 @@ public class Level : GameObject
 
         _player.SetOrigin(512, 1024);
         _player.x = width / 2;
-        _player.y = height / 2 - 200;
-
-        AddChild(_player);
+        _player.y = height / 2 - 113; //113
     }
 
     public Player GetPlayer()
@@ -258,7 +269,7 @@ public class Level : GameObject
 
     private void backgroundLevel()
     {
-        _backgroundLevel = new Background("backgroundLevel.png");
+        _backgroundLevel = new Background("Newest_Inside_Tent.png");
         AddChild(_backgroundLevel);
     }
 

@@ -11,7 +11,7 @@ public class Lives : AnimationSprite
         _player = player;
 
         this.x = 1730;
-        this.y = -10;
+        this.y = 0;
     }
 
     public void Update()

@@ -4,7 +4,7 @@ using GXPEngine;								// GXPEngine contains the engine
 
 public class ClownBalance : Game
 {
-    public ClownBalance() : base(1920, 1080, false,true)      // Create a window that's 800x600 and NOT fullscreen
+    public ClownBalance() : base(1920, 1080, false, true)      // Create a window that's 800x600 and NOT fullscreen
     {
 
         StartUpScreen startUpScreen = new StartUpScreen();
