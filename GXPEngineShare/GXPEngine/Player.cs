@@ -29,6 +29,7 @@ public class Player : Animation
 
     private int _tomatoPush;
 
+    private float _limit;
     private Sprite _hitBox;
 
 
@@ -44,6 +45,8 @@ public class Player : Animation
         _moveSpeed = 0.5f;
         _maxSpeed = 15f;
         _friction = 0.2f;
+
+        _limit = 200f;
 
         _currentBalance = 0f;
         _maxBalance = 60f;
@@ -134,36 +137,44 @@ public class Player : Animation
 
         if ((Input.GetKey('d') || Input.GetKey('D')) && (Input.GetKey('a') || Input.GetKey('A')))
         {
-            if (_currentSpeed < _maxSpeed - _currentSpeed)
+            if (this.x <= _width - _limit)
             {
-                _currentSpeed += _moveSpeed;
-                if (_currentBalance > -_maxBalance)
+                if (_currentSpeed < _maxSpeed - _currentSpeed)
                 {
-                    _currentBalance -= _balanceSpeed;
+                    _currentSpeed += _moveSpeed;
+                    if (_currentBalance > -_maxBalance)
+                    {
+                        _currentBalance -= _balanceSpeed;
+                    }
                 }
             }
         }
         else if (Input.GetKey('d') || Input.GetKey('D'))
         {
-            
-            if (_currentSpeed < _maxSpeed - _currentSpeed)
+            if (this.x <= _width - _limit)
             {
-                _currentSpeed += _moveSpeed;
-                if (_currentBalance > -_maxBalance )
+                if (_currentSpeed < _maxSpeed - _currentSpeed)
                 {
-                    _currentBalance -= _balanceSpeed;
+                    _currentSpeed += _moveSpeed;
+                    if (_currentBalance > -_maxBalance)
+                    {
+                        _currentBalance -= _balanceSpeed;
+                    }
                 }
             }
             
         }
         else if (Input.GetKey('a') || Input.GetKey('A'))
         {
-            if (_currentSpeed > -_maxSpeed - _currentSpeed)
+            if (this.x >= _limit)
             {
-                _currentSpeed -= _moveSpeed;
-                if (_currentBalance < _maxBalance )
+                if (_currentSpeed > -_maxSpeed - _currentSpeed)
                 {
-                    _currentBalance += _balanceSpeed;
+                    _currentSpeed -= _moveSpeed;
+                    if (_currentBalance < _maxBalance)
+                    {
+                        _currentBalance += _balanceSpeed;
+                    }
                 }
             }
         }
@@ -200,12 +211,23 @@ public class Player : Animation
                 _currentSpeed += _friction;
 
             this.x += _currentSpeed;
-
         }
         
     }
 
-
+    private void limitCheck()
+    {
+        if (this.x <= _limit)
+        {
+            this.x = _limit + 0.01f;
+            _currentSpeed = 0f;
+        }
+        else if(this.x >= _width - _limit)
+        {
+            this.x = _width - _limit - 0.01f;
+            _currentSpeed = 0f;
+        }
+    }
 
     private void resetPlayer()
     {
@@ -249,6 +271,7 @@ public class Player : Animation
         balanceClown();
         handleHitBoxCollisions();
         animationHandler();
+        limitCheck();
     }
 
     public float GetMouseX()
