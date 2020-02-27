@@ -29,13 +29,16 @@ public class Player : Animation
     private int _tomatoPush;
 
     private Sprite _hitBox;
-    Random random;
 
+<<<<<<< HEAD
     //public Player() : base("ForwardAnimation20FPS.png", 8, 3) // monocycle
     public Player() : base("Clown_Idle_SS.png", 7, 9) // monocycle
+=======
+
+    public Player() : base("ForwardAnimation20FPS.png", 8, 3) // monocycle
+>>>>>>> 89c867cd1bccebc215fc22929c9c60bb9f283a2c
     {
         _mouseHandler = new Mouse();
-        random = new Random();
 
 
         _tomatoPush = 15;
@@ -146,6 +149,7 @@ public class Player : Animation
         }
         else if (Input.GetKey('d') || Input.GetKey('D'))
         {
+            
             if (_currentSpeed < _maxSpeed - _currentSpeed)
             {
                 _currentSpeed += _moveSpeed;
@@ -249,6 +253,16 @@ public class Player : Animation
         balanceClown();
         handleHitBoxCollisions();
         animationHandler();
+    }
+
+    public float GetMouseX()
+    {
+        return _mouseX;
+    }
+
+    public float GetMaxBalance()
+    {
+        return _maxBalance;
     }
 
 }
