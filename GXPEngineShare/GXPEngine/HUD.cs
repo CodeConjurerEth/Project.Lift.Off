@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Collections.Generic;
 
 namespace GXPEngine
@@ -9,16 +10,19 @@ namespace GXPEngine
 
         private Lives _lives;
         private Player _player;
-        private Font _arialFont;
+        private Font _font;
         private Arc _arc;
         private Sprite _arcPointer;
+        private PrivateFontCollection _fontCollection;
 
         public HUD(Player player) : base(1920, 1080, false)
         {
             _lives = new Lives(player);
             _player = player;
-            _arialFont = new Font("Carnevalee Freakshow", 50);
             _arc = new Arc();
+            _fontCollection = new PrivateFontCollection();
+            _fontCollection.AddFontFile("CarnevaleeFreakshow.ttf");
+            _font = new Font(_fontCollection.Families[0], 50);
 
             arcSetup();
             pointerSetup();
@@ -31,7 +35,7 @@ namespace GXPEngine
         void Update()
         {
             graphics.Clear(Color.Empty);
-            graphics.DrawString(_player.ScorePlayer.ToString(), _arialFont, Brushes.White, 50, 16);
+            graphics.DrawString(_player.ScorePlayer.ToString(), _font, Brushes.White, 50, 16);
             arcFollow();
             pointerFollow();
         }
