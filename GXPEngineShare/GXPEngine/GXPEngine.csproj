@@ -88,7 +88,7 @@
     <Compile Include="GXPEngine\FMOD\FMODSoundSystem.cs" />
     <Compile Include="GXPEngine\SoLoud\Soloud.cs" />
     <Compile Include="GXPEngine\SoLoud\SoloudSoundSystem.cs" />
-    <Compile Include="Player.cs" />
+    <Compile Include="Level\Player.cs" />
     <Compile Include="Main_Menu.cs" />
     <Compile Include="SceneManager.cs" />
     <Compile Include="ScoreBoard_2.cs" />

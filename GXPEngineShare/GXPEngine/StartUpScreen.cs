@@ -25,7 +25,6 @@ namespace GXPEngine
 
             _hasStarted = false;
 
-            Console.WriteLine("HFFAGFGFGAGAGAFA");
 
             startMusic();
 

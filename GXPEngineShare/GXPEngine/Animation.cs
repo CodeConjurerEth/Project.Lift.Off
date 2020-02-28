@@ -8,7 +8,6 @@ public class Animation : AnimationSprite
     private int _numbOfFram;
     private int _startFra;
 
-
     float _frameInterval;
     float _animationTimer;
 
@@ -19,10 +18,8 @@ public class Animation : AnimationSprite
     }
 
 
-
     protected void walkingAnimation(int numberOffFrames)
     {
-
         _numbOfFram = numberOffFrames;
 
         int frame = (int)(this.x / 5) % _numbOfFram;
@@ -35,7 +32,7 @@ public class Animation : AnimationSprite
         _startFra = startFrame;
 
 
-    _animationTimer += Time.deltaTime;
+        _animationTimer += Time.deltaTime;
         int currentFrame = (int)(_animationTimer / _frameInterval) % _numbOfFram + _startFra;
         SetFrame(currentFrame);
     }
