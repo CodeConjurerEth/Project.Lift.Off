@@ -101,7 +101,7 @@ public class Level : GameObject
 
     private void levelEasy()
     {
-        if (Time.time < _nextSpawnTimeLeft)
+        if (Time.time > _nextSpawnTimeLeft)
         {
             flowers = new Flowers(random.Next(0, 1920), random.Next(900, 1080));
             AddChild(flowers);

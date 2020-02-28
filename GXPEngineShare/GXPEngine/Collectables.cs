@@ -3,9 +3,6 @@ using System;
 
 public class Collectables : AnimationSprite
 {
-    private float _speedX = 0.7f;
-    private float _speedY = 5f;
-
     private int numberOffFrames = 6;
     private int startFrame = 0;
     private float frameInterval = 200f;
@@ -24,8 +21,6 @@ public class Collectables : AnimationSprite
 
         Timer timer = new Timer(5000, LateDestroy);
         AddChild(timer);
-
-        /// Pick up needs to appear at a certain score, and then dissappear after a few seconds;
 
     }
 
