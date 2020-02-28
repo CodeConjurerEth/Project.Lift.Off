@@ -10,8 +10,10 @@ namespace GXPEngine
 
         Background _backgroundStartUp;
 
-        private Sound _music; 
-        private SoundChannel _backgroundMusic;
+        protected Sound _pressButtonSound;
+        protected SoundChannel _backgroundMusic;
+
+        bool playmusic;
 
         
 
@@ -19,44 +21,55 @@ namespace GXPEngine
 
         public StartUpScreen() : base()
         {
+            _pressButtonSound = new Sound("buttonclick.wav");
+
             _hasStarted = false;
+
+            Console.WriteLine("HFFAGFGFGAGAGAFA");
 
             startMusic();
 
             _backgroundStartUp = new Background("Startup.png");
             AddChild(_backgroundStartUp);
-
-           
+            Console.WriteLine(_hasStarted);
         }
 
         void startMusic()
         {
-            _music = new Sound("golden_sunrise.mp3", true, true);
-            _music.Play();
-
+            if (_backgroundMusic == null)
+            {
+                Sound backgroundMusic = new Sound("backgroundmusic.wav", true, true);
+                _backgroundMusic = backgroundMusic.Play();
+            }
         }
 
         private void Update()
         {
-           
+
 
             if (Input.GetKeyDown(Key.ENTER))
             {
-                if (screenHandler == null)
-                {
+                
+                _backgroundMusic.Stop();
                     startMenu();
-                }
+            }
+
+            if(Input.GetKeyDown(Key.ENTER) && _hasStarted == false)
+            {
+                _pressButtonSound.Play();
+                _hasStarted = true;
             }
 
             if (Input.GetKeyDown(Key.M))
             {
+                _backgroundMusic.Stop();
                 resetLevel();
             }
         }
 
         private void startMenu()
         {
-            if (_hasStarted == false)
+            if (screenHandler == null)
             {
                 screenHandler = new Main_Menu();
                 AddChild(screenHandler);
@@ -69,6 +82,7 @@ namespace GXPEngine
             if (screenHandler != null)
 
             {
+                _backgroundMusic.Stop();
                 screenHandler.Destroy();
                 screenHandler = null;
             }

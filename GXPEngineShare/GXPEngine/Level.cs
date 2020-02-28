@@ -95,7 +95,8 @@ public class Level : GameObject
             }
             i++;
         }
-        
+        if (Time.time >= nextTimer)
+            _isSpawned = false;
     }
 
     private void levelEasy()
