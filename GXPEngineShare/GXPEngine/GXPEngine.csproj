@@ -36,10 +36,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Tools\Animation.cs" />
+    <Compile Include="UI\Arc.cs" />
+    <Compile Include="Screens\Background.cs" />
+    <Compile Include="Screens\Button.cs" />
     <Compile Include="Game Object\Collectables.cs" />
+    <Compile Include="Screens\Crowd.cs" />
+    <Compile Include="Tools\ExtensionMethods.cs" />
     <Compile Include="Game Object\Flowers.cs" />
-    <Compile Include="Game Object\Player.cs" />
-    <Compile Include="Game Object\Tomatoes.cs" />
+    <Compile Include="Screens\GameOverScreen.cs" />
+    <Compile Include="Screens\HowToPlayScreen.cs" />
+    <Compile Include="UI\HUD.cs" />
+    <Compile Include="Screens\Level.cs" />
+    <Compile Include="UI\Lives.cs" />
+    <Compile Include="Tools\Mouse.cs" />
     <Compile Include="MyGame.cs" />
     <Compile Include="GXPEngine\Canvas.cs" />
     <Compile Include="GXPEngine\Game.cs" />
@@ -78,23 +88,13 @@
     <Compile Include="GXPEngine\FMOD\FMODSoundSystem.cs" />
     <Compile Include="GXPEngine\SoLoud\Soloud.cs" />
     <Compile Include="GXPEngine\SoLoud\SoloudSoundSystem.cs" />
-    <Compile Include="Screens\Background.cs" />
-    <Compile Include="Screens\Button.cs" />
-    <Compile Include="Screens\Crowd.cs" />
-    <Compile Include="Screens\GameOverScreen.cs" />
-    <Compile Include="Screens\HowToPlayScreen.cs" />
-    <Compile Include="Screens\Level.cs" />
+    <Compile Include="Game Object\Player.cs" />
     <Compile Include="Screens\Main_Menu.cs" />
-    <Compile Include="Screens\StartUpScreen.cs" />
-    <Compile Include="Tools\Animation.cs" />
-    <Compile Include="Tools\ExtensionMethods.cs" />
-    <Compile Include="Tools\Mouse.cs" />
-    <Compile Include="Tools\Timer.cs" />
-    <Compile Include="UI\Arc.cs" />
-    <Compile Include="UI\HUD.cs" />
-    <Compile Include="UI\Lives.cs" />
     <Compile Include="UI\ScoreBoard_2.cs" />
-    <Compile Include="UI\scoreHUD.cs" />
+    <Compile Include="UI\ScoreHUD.cs" />
+    <Compile Include="Screens\StartUpScreen.cs" />
+    <Compile Include="Tools\Timer.cs" />
+    <Compile Include="Game Object\Tomatoes.cs" />
   </ItemGroup>
   <ItemGroup />
 </Project>
