@@ -4,18 +4,12 @@ namespace GXPEngine
 {
     public class StartUpScreen : GameObject
     {
-        Button _buttonGoToMainMenu;
-
         Main_Menu screenHandler;
 
         Background _backgroundStartUp;
 
         protected Sound _pressButtonSound;
-        protected SoundChannel _backgroundMusic;
-
-        bool playmusic;
-
-        
+        protected SoundChannel _backgroundMusic;    
 
         private bool _hasStarted;
 
@@ -33,27 +27,18 @@ namespace GXPEngine
             Console.WriteLine(_hasStarted);
         }
 
-        void startMusic()
-        {
-            if (_backgroundMusic == null)
-            {
-                Sound backgroundMusic = new Sound("backgroundmusic.wav", true, true);
-                _backgroundMusic = backgroundMusic.Play();
-            }
-        }
-
-        private void Update()
+        public void Update()
         {
 
 
             if (Input.GetKeyDown(Key.ENTER))
             {
-                
+
                 _backgroundMusic.Stop();
-                    startMenu();
+                startMenu();
             }
 
-            if(Input.GetKeyDown(Key.ENTER) && _hasStarted == false)
+            if (Input.GetKeyDown(Key.ENTER) && _hasStarted == false)
             {
                 _pressButtonSound.Play();
                 _hasStarted = true;
@@ -63,6 +48,15 @@ namespace GXPEngine
             {
                 _backgroundMusic.Stop();
                 resetLevel();
+            }
+        }
+
+        void startMusic()
+        {
+            if (_backgroundMusic == null)
+            {
+                Sound backgroundMusic = new Sound("backgroundmusic.wav", true, true);
+                _backgroundMusic = backgroundMusic.Play();
             }
         }
 

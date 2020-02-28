@@ -3,11 +3,11 @@ using System;
 
 public class Collectables : AnimationSprite
 {
-    private int numberOffFrames = 6;
-    private int startFrame = 0;
-    private float frameInterval = 200f;
+    private int numberOffFrames;
+    private int startFrame;
+    private float frameInterval;
 
-    private float _animationTimer = 0;
+    private float _animationTimer;
 
     public bool _isSpawned;
 
@@ -18,6 +18,10 @@ public class Collectables : AnimationSprite
         this.y = _startY;
 
         scale = 1.8f;
+        numberOffFrames = 6;
+        startFrame = 0;
+        frameInterval = 200f;
+        _animationTimer = 0;
 
         Timer timer = new Timer(5000, LateDestroy);
         AddChild(timer);

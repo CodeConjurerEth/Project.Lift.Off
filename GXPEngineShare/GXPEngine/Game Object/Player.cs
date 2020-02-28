@@ -52,6 +52,47 @@ public class Player : Animation
 
         random = new Random();
 
+        valueSetup();
+
+        AddChild(_mouseHandler);
+
+        hitBox();
+    }
+
+    public void Update()
+    {
+        handleInput();
+        movement();
+        wind();
+        balanceClown();
+        handleHitBoxCollisions();
+        animationHandler();
+        limitCheck();
+        Console.WriteLine(_mouseX);
+    }
+
+    public float GetMouseX()
+    {
+        return _mouseX;
+    }
+
+    public float GetMaxBalance()
+    {
+        return _maxBalance;
+    }
+
+    public int GetScore()
+    {
+        return ScorePlayer;
+    }
+
+    public int GetLives()
+    {
+        return LivesPlayer;
+    }
+
+    private void valueSetup()
+    {
         _tomatoPush = 15;
         _isMoving = false;
 
@@ -73,22 +114,6 @@ public class Player : Animation
 
         ScorePlayer = 0;
         LivesPlayer = 2;
-
-
-
-        AddChild(_mouseHandler);
-
-        hitBox();
-    }
-
-    public int GetScore()
-    {
-        return ScorePlayer;
-    }
-
-    public int GetLives()
-    {
-        return LivesPlayer;
     }
 
     private void randomSound()
@@ -216,7 +241,6 @@ public class Player : Animation
 
     private void balanceClown()
     {
-        //  if (_mouseHandler.IsMoving() == true)
         if (_mouseX >= 0 && _mouseX <= 1920)
             _currentBalance += _mouseX.Map(0, _width, -_balanceDifficulty, _balanceDifficulty);
 
@@ -226,9 +250,6 @@ public class Player : Animation
             resetPlayer();
         }
         this.rotation = _currentBalance;
-
-        //else
-        //set cursor to middle of screen
     }
 
     private void movement()
@@ -284,28 +305,6 @@ public class Player : Animation
                 _currentBalance += _balanceSpeed * _windSpeed;
             }
         }
-    }
-
-    public void Update()
-    {
-        handleInput();
-        movement();
-        wind();
-        balanceClown();
-        handleHitBoxCollisions();
-        animationHandler();
-        limitCheck();
-        Console.WriteLine(_mouseX);
-    }
-
-    public float GetMouseX()
-    {
-        return _mouseX;
-    }
-
-    public float GetMaxBalance()
-    {
-        return _maxBalance;
     }
 
 }

@@ -3,10 +3,10 @@ using System;
 
 public class Tomatoes : AnimationSprite
 {
-    private float _speedX = 0.7f;
-    private float _speedY = 5f;
+    private float _speedX;
+    private float _speedY;
 
-    private int numberOffFrames = 6;
+    private int numberOffFrames;
 
 
     public Tomatoes(int _startX, int _startY) : base("TomatoesAnim.png", 5, 3)
@@ -15,6 +15,11 @@ public class Tomatoes : AnimationSprite
         this.y = _startY;
 
         scale = 1.8f;
+
+        _speedX = 0.7f;
+        _speedY = 5f;
+
+        numberOffFrames = 6;
     }
 
     private void Update()

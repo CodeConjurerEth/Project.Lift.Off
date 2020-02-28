@@ -3,11 +3,8 @@ using System;
 
 public class Level : GameObject
 {
-    //private Player _player;
-    //private HUD _HUD
     private Player _player;
     private Background _backgroundLevel;
-    private AnimationSprite _crowd;
     Tomatoes tomatoes;
     Flowers flowers;
 
@@ -31,19 +28,12 @@ public class Level : GameObject
     private int time;
     private int i;
 
-    private int _startFrame = 0;
-    private int _numberOfFrames = 2;
-
-    private float _frameInterval = 250f;
-    private float _animationTimer = 0.0f;
 
     public Level()
 	{
         backgroundLevel();
-        //crowdSetup();
-        Crowd crowd = new Crowd();
-        AddChild(crowd);
 
+        Crowd crowd = new Crowd();
         
 
         _isSpawned = false;
@@ -52,8 +42,6 @@ public class Level : GameObject
         _collectableCounter = 0;
         i = 0;
 
-        //Timer timer = new Timer(3000, LateDestroy);
-        //AddChild(timer);
         random = new Random();
 
         time = 5000;
@@ -61,9 +49,33 @@ public class Level : GameObject
         playerSetup();
 
         HUD hud = new HUD(_player);
+
+        AddChild(crowd);
         AddChild(hud);
         AddChild(_player);
 
+    }
+
+    public void Update()
+    {
+        if (_player.ScorePlayer < 1500)
+        {
+            levelEasy();
+        }
+        if (_player.ScorePlayer > 1500 && _player.ScorePlayer < 3000)
+        {
+            levelMedium();
+        }
+        if (_player.ScorePlayer > 3000)
+        {
+            levelHard();
+        }
+
+
+
+        CollectableAppear();
+
+        CheckGameOver();
     }
 
     private void CollectableAppear()
@@ -226,29 +238,6 @@ public class Level : GameObject
         }
     }
 
-
-    private void Update()
-    {
-        if (_player.ScorePlayer < 1500)
-        {
-            levelEasy();
-        }
-        if (_player.ScorePlayer > 1500 && _player.ScorePlayer < 3000)
-        {
-            levelMedium();
-        }
-        if (_player.ScorePlayer > 3000)
-        {
-            levelHard();
-        }
-
-
-
-        CollectableAppear();
-
-        CheckGameOver();
-    }
-
     private void playerSetup()
     {
         _player = new Player();
@@ -268,15 +257,5 @@ public class Level : GameObject
         _backgroundLevel = new Background("Newest_Inside_Tent.png");
         AddChild(_backgroundLevel);
     }
-
-    //private void crowdSetup()
-    //{
-    //    _crowd = new AnimationSprite("crowdanimation.png", 1, 2);
-    //    AddChild(_crowd);
-
-    //    _animationTimer += Time.deltaTime;
-    //    int currentFrame = (int)(_animationTimer / _frameInterval) % _numberOfFrames + _startFrame;
-    //    _crowd.SetFrame(currentFrame);
-    //}
   
 }

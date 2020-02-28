@@ -10,8 +10,6 @@ namespace GXPEngine
 
         private SoundChannel _levelSound;
 
-        private Sound _levcelSound;
-
         Level _level;
 
         const int START     = 1;
@@ -46,7 +44,7 @@ namespace GXPEngine
             _buttonArrow1.y = 810;
         }
 
-        private void Update()
+        public void Update()
         {
             switchStates();
 

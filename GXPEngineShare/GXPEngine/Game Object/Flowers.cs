@@ -3,16 +3,21 @@ using System;
 
 public class Flowers : AnimationSprite
 {
-    private float _speedX = 0.7f;
-    private float _speedY = 5f;
+    private float _speedX;
+    private float _speedY;
 
-    private int numberOffFrames = 6;
+    private int numberOffFrames;
 
 
     public Flowers(int _startX, int _startY) : base("flower.png", 3, 2)
     {
         this.x = _startX;
         this.y = _startY;
+
+        _speedX = 0.7f;
+        _speedY = 5f;
+
+        numberOffFrames = 6;
 
         scale = 1.8f;
 
@@ -36,8 +41,6 @@ public class Flowers : AnimationSprite
             x = x + _speedX;
             y = y - _speedY;
         }
-
-        //animationFlowers();
 
     }
 

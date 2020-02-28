@@ -17,11 +17,13 @@ namespace GXPEngine
 
         public HUD(Player player) : base(1920, 1080, false)
         {
-            _lives = new Lives(player);
             _player = player;
+            _lives = new Lives(player);
             _arc = new Arc();
+
             _fontCollection = new PrivateFontCollection();
             _fontCollection.AddFontFile("CarnevaleeFreakshow.ttf");
+
             _font = new Font(_fontCollection.Families[0], 50);
 
             arcSetup();
@@ -34,8 +36,7 @@ namespace GXPEngine
 
         void Update()
         {
-            graphics.Clear(Color.Empty);
-            graphics.DrawString(_player.ScorePlayer.ToString(), _font, Brushes.White, 75, 50);
+            drawScore();
             arcFollow();
             pointerFollow();
         }
@@ -65,6 +66,12 @@ namespace GXPEngine
 
             if (_player.GetMouseX() >= 0 && _player.GetMouseX() <= 1920)
                 _arcPointer.rotation = _player.GetMouseX().Map(0, 1920, -_player.GetMaxBalance()/1.7f, _player.GetMaxBalance()/1.7f);
+        }
+
+        private void drawScore()
+        {
+            graphics.Clear(Color.Empty);
+            graphics.DrawString(_player.ScorePlayer.ToString(), _font, Brushes.White, 75, 50);
         }
     }
 }
