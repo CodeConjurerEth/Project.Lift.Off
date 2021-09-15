@@ -9,4 +9,4 @@ Without the controller the controls are:
 
 Game Trailer: https://drive.google.com/file/d/1tsnZ3XeQqRpT31xCjhDFXMs6lX0JK-fk/view?usp=sharing
 
-Controller in action: https://drive.google.com/file/d/1b0aOacCRw0UmqHi4JIHWBt1mwiHwz-V2/view?usp=sharing
+Gameplay with the controller: https://drive.google.com/file/d/1QV4gnnlB3F30oFdwmqzOnkumW3RDjLaB/view?usp=sharing
