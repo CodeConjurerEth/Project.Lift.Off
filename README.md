@@ -1,4 +1,4 @@
-This is an arcade game for Saxion's Project Lift Off.
+This is an arcade game for Saxion's Project Lift Off. Made using GXPEngine
 
 You have to run this one from the .sln file using and IDE
 
