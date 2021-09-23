@@ -1,8 +1,8 @@
 This is an arcade game for Saxion's Project Lift Off. Made using GXPEngine
 
-You have to run this one from the .sln file using and IDE
+You have to run this one from the .sln file using an IDE
 
-Without the controller the controls are: 
+Without the physical controller the controls are: 
   
   Enter as the "Center" button,
   
